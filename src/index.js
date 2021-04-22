@@ -6,6 +6,7 @@ const { urlencoded } = require('express');
 const app = express();
 const port = 3000;
 
+const route = require('./routes');
 app.use(express.static(path.join(__dirname,'public')));
 app.use(urlencoded({
   extended:true
@@ -20,22 +21,9 @@ app.engine('hbs', handlebars({
 })); 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
-
 // console.log('PATH: ', path.join(__dirname, 'resources/views'));
-app.get('/', (req, res) => {
-  res.render('home');
-});
-app.get('/news', (req, res) => {
-  res.render('news');
-});
-app.get('/search', (req, res) => {
-  // console.log(req.query.q);
-  res.render('search');
-});
-app.post('/search', (req, res) => {
-  // console.log(req.body);
-  res.send('');
-});
+
+route(app);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
