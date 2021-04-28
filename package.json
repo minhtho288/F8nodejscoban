@@ -26,17 +26,18 @@
     "url": "https://github.com/minhtho288/F8nodejscoban/issues"
   },
   "homepage": "https://github.com/minhtho288/F8nodejscoban#readme",
-  "lint-staged":{
-    "src/**/*.{js,json,scss}" :"prettier --single-quote --trailing-comma all --tab-width 4 --write "
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write "
   },
-  "husky":{
-    "hooks":{
-      "pre-commit":"lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
   },
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.3.0",
+    "method-override": "^3.0.0",
     "mongoose": "^5.12.5",
     "mongoose-slug-generator": "^1.0.4"
   },
